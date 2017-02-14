@@ -3,7 +3,7 @@ session_start();
 
 try
     {
-        $bdd = new PDO('mysql:host=localhost;dbname=espace_membres;charset=utf8', 'root', 'root');
+        $bdd = new PDO('mysql:host=localhost;dbname=member_aera;charset=utf8', 'root', 'root');
     }
 catch (Exception $e)
     {
@@ -16,7 +16,7 @@ if(isset($_POST['envoye_donnee_connect']))
     $passwordconnect = sha1($_POST['passwordconnect']);
     if(!empty($_POST['pseudoconnect']) AND (!empty($_POST['passwordconnect'])))
     {
-        $reqconnect = $bdd -> prepare('SELECT * FROM membres WHERE pseudo = ? AND mdp = ?');
+        $reqconnect = $bdd -> prepare('SELECT * FROM member WHERE pseudo = ? AND mdp = ?');
         $reqconnect -> execute(array($pseudoconnect, $passwordconnect));
         $connectexist = $reqconnect->rowCount();
         if ($connectexist == 1)

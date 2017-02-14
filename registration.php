@@ -1,7 +1,7 @@
 <?php
 try
     {
-        $bdd = new PDO('mysql:host=localhost;dbname=espace_membres;charset=utf8', 'root', 'root');
+        $bdd = new PDO('mysql:host=localhost;dbname=member_aera;charset=utf8', 'root', 'root');
     }
 catch (Exception $e)
     {
@@ -24,7 +24,7 @@ if(isset($_POST['envoye_donnee']))
         if ($pseudolength <= 255)
         {
             //Vérification que le pseudo n'existe pas déjà en base de donnée.
-            $reqpseudo = $bdd ->prepare("SELECT * FROM membres WHERE pseudo = ?");
+            $reqpseudo = $bdd ->prepare("SELECT * FROM member WHERE pseudo = ?");
             $reqpseudo -> execute(array($pseudo));
             $pseudoexist = $reqpseudo ->rowCount();
             if($pseudoexist == 0)
@@ -35,7 +35,7 @@ if(isset($_POST['envoye_donnee']))
                     if(filter_var($email, FILTER_VALIDATE_EMAIL))
                     {
                         // Vérification que l'email n'existe pas déjà
-                        $reqmail = $bdd ->prepare("SELECT * FROM membres WHERE email = ?");
+                        $reqmail = $bdd ->prepare("SELECT * FROM member WHERE email = ?");
                         $reqmail->execute(array($email));
                         $mailexist=$reqmail->rowCount();
                         if ($mailexist == 0)
@@ -44,7 +44,7 @@ if(isset($_POST['envoye_donnee']))
                             if ($password == $password2)
                             {
                                 // Alors inscription du membre en base de donnée.
-                               $req = $bdd->prepare('INSERT INTO membres(pseudo, email, mdp, date_inscription) VALUES(:pseudo, :email, :password, NOW())');
+                               $req = $bdd->prepare('INSERT INTO member(pseudo, email, mdp, date_inscription) VALUES(:pseudo, :email, :password, NOW())');
                                $req->execute(array(
                                     'pseudo' => $pseudo,
                                     'email' => $email,
