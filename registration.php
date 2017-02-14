@@ -50,7 +50,7 @@ if(isset($_POST['envoye_donnee']))
                                     'email' => $email,
                                     'password' => $password));
                                
-                               $erreur = "Votre compte a bien été créer";
+                               header('Location: login_page.php');
                             }
                             else
                             {
