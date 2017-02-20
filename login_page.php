@@ -12,12 +12,12 @@ catch (Exception $e)
 //Vérification que le formulaire a bien été envoyé.
 if(isset($_POST['envoye_donnee_connect']))
 {
-    $pseudoconnect = htmlspecialchars($_POST['pseudoconnect']);
+    $emailconnect = htmlspecialchars($_POST['emailconnect']);
     $passwordconnect = sha1($_POST['passwordconnect']);
-    if(!empty($_POST['pseudoconnect']) AND (!empty($_POST['passwordconnect'])))
+    if(!empty($_POST['emailconnect']) AND (!empty($_POST['passwordconnect'])))
     {
-        $reqconnect = $bdd -> prepare('SELECT * FROM member WHERE pseudo = ? AND mdp = ?');
-        $reqconnect -> execute(array($pseudoconnect, $passwordconnect));
+        $reqconnect = $bdd -> prepare('SELECT * FROM member WHERE email = ? AND mdp = ?');
+        $reqconnect -> execute(array($emailconnect, $passwordconnect));
         $connectexist = $reqconnect->rowCount();
         if ($connectexist == 1)
         {
@@ -51,10 +51,10 @@ if(isset($_POST['envoye_donnee_connect']))
                     <table>
                         <tr>
                             <td align="right">
-                                <label for="pseudo">Pseudo :</label>
+                                <label for="pseudo">email :</label>
                             </td>
                             <td>
-                                <input type="text" name="pseudoconnect" placeholder="pseudo" id="pseudo">
+                                <input type="email" name="emailconnect" placeholder="email" id="email">
                             </td>
                         </tr>
                         <tr>
