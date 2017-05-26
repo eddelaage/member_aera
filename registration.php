@@ -7,6 +7,9 @@ catch (Exception $e)
     {
         die('Erreur : ' . $e->getMessage());
     }
+
+include_once('cookies_connect.php');
+
 //Vérification que le formulaire a bien été envoyé.
 if(isset($_POST['envoye_donnee']))
 {
@@ -18,7 +21,7 @@ if(isset($_POST['envoye_donnee']))
         $email2 = htmlspecialchars($_POST['email2']);
         $password = sha1($_POST['password']);
         $password2 = sha1($_POST['password2']);
-        
+
         // Vérification que le pseudo ne fait pas plus de 255 caractères
         $pseudolength = strlen($pseudo);
         if ($pseudolength <= 255)
@@ -49,7 +52,7 @@ if(isset($_POST['envoye_donnee']))
                                     'pseudo' => $pseudo,
                                     'email' => $email,
                                     'password' => $password));
-                               
+
                                header('Location: login_page.php');
                             }
                             else

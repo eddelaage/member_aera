@@ -10,13 +10,16 @@ catch (Exception $e)
         die('Erreur : ' . $e->getMessage());
     }
 
+
+include_once('cookies_connect.php');
+
 if(isset($_GET['id']) AND $_GET['id'] > 0)
 {
     $getid=intval($_GET['id']);
     $requser = $bdd->prepare('SELECT * FROM member WHERE id = ?');
     $requser->execute(array($getid));
     $userinfo = $requser->fetch();
-    
+
 
 ?>
 <!DOCTYPE html>
@@ -36,7 +39,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                     {
                 ?>
                     <a href="#">Editer mon profil / </a>
-                    <a href="login_page.php">Se deconnecter</a>
+                    <a href="sign_out.php">Se deconnecter</a>
                 <?php
                     }
                 ?>
