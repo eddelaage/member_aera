@@ -73,30 +73,21 @@ if(isset($_POST['envoye_donnee_connect']))
                             </td>
                         </tr>
                         <tr>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                            <td></td>
-                            <td align="center">
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> origin/remember_me
-                            <td align="left">
-                                <label>Se souvenir de moi</label>
-                                <input type="checkbox" name="rememberme" id="rememberme">
-                            </td>
-                            <td align="right">
-<<<<<<< HEAD
-=======
                             <td>
                                 <label>Se souvenir de moi</label>
                                 <input type="checkbox" name="rememberme">
                             </td>
                             <td align="center">
->>>>>>> Stashed changes
->>>>>>> 97aab10... Ajout de la fonctionnalité remember me
-=======
->>>>>>> origin/remember_me
+                            <td align="left">
+                                <label>Se souvenir de moi</label>
+                                <input type="checkbox" name="rememberme" id="rememberme">
+                            </td>
+                            <td align="right">
+                            <td>
+                                <label>Se souvenir de moi</label>
+                                <input type="checkbox" name="rememberme">
+                            </td>
+                            <td align="center">
                                 <input type="submit" name="envoye_donnee_connect" value="Valider">
                             </td>
                         </tr>
