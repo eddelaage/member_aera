@@ -73,17 +73,7 @@ if(isset($_POST['envoye_donnee_connect']))
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <label>Se souvenir de moi</label>
-                                <input type="checkbox" name="rememberme">
-                            </td>
-                            <td align="center">
                             <td align="left">
-                                <label>Se souvenir de moi</label>
-                                <input type="checkbox" name="rememberme" id="rememberme">
-                            </td>
-                            <td align="right">
-                            <td>
                                 <label>Se souvenir de moi</label>
                                 <input type="checkbox" name="rememberme">
                             </td>
